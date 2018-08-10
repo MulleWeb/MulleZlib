@@ -9,7 +9,7 @@
 # include <MulleObjCStandardFoundation/MulleObjCStandardFoundation.h>   // MulleObjCStandardFoundation
 
 # if defined( __APPLE__)
-#  include <z.h>   // z
+#  include <zlib.h>   // z
 # endif
 
 # if ! defined( __APPLE__)

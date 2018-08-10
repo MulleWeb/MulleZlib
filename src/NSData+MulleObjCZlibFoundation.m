@@ -22,6 +22,7 @@
    if (ret != Z_OK)
    {
       // TODO: push NSError
+      (void) deflateEnd( &strm);
       return( nil);
    }
 
@@ -54,7 +55,7 @@
          return( data);
 
       default:
-         (void) inflateEnd( &strm);
+         (void) deflateEnd( &strm);
          return( nil);
       }
    } 
@@ -82,6 +83,7 @@
    if (ret != Z_OK)
    {
       // TODO: push NSError
+      (void) inflateEnd( &strm);
       return( nil);
    }
 
@@ -110,7 +112,7 @@
 
       case Z_STREAM_END:
          [data setLength:strm.total_out];
-         (void) deflateEnd( &strm);
+         (void) inflateEnd( &strm);
          return( data);
 
       default:
