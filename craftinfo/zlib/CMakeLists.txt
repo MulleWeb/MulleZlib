@@ -1,11 +1,11 @@
 cmake_minimum_required( VERSION 3.0)
 
-project( zlib NONE)
+project( expat NONE)
 
-file( GLOB BUILDINFO_DIRS
-   zlib*
+file( GLOB DEFINITION_DIRS
+   definition*
 )
 
-foreach( DIR ${BUILDINFO_DIRS} )
-   install( DIRECTORY "${DIR}" DESTINATION "share/mulle-craft")
+foreach( DIR ${DEFINITION_DIRS} )
+   install( DIRECTORY "${DIR}" DESTINATION "share/mulle-craft/zlib")
 endforeach()

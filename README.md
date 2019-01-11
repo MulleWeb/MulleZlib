@@ -1,17 +1,15 @@
 # MulleObjCZlibFoundation
 
-This is a [mulle-sde](https://mulle-sde.github.io/) project.
+Adds compression methods to **NSData**.
 
-It has it's own virtual environment, that will be automatically setup for you
-once you enter it with:
 
-```
-mulle-sde MulleObjCZlibFoundation
-```
+Build Status | Release Version
+-------------|-----------------------------------
+[![Build Status](https://travis-ci.org/MulleFoundation/MulleObjCZlibFoundation.svg?branch=release)](https://travis-ci.org/MulleFoundation/MulleObjCZlibFoundation) | ![Mulle kybernetiK tag](https://img.shields.io/github/tag/MulleFoundation/MulleObjCZlibFoundation.svg) [![Build Status](https://travis-ci.org/MulleFoundation/MulleObjCZlibFoundation.svg?branch=release)](https://travis-ci.org/MulleFoundation/MulleObjCZlibFoundation)
 
-Now you can let **mulle-sde** fetch the required dependencies and build the 
-project for you:
 
-```
-mulle-sde craft
-```
+## Install
+
+See [foundation-developer](//github.com//foundation-developer) for
+installation instructions.
+

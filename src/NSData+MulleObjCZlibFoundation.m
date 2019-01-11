@@ -7,16 +7,23 @@
 
 - (NSData *) zlibCompressedDataWithCompressionLevel:(int) level
 {
-   NSMutableData   *data;
-   NSUInteger      size;
-   z_stream        strm;
-   int             ret;
+   NSMutableData            *data;
+   NSUInteger               size;
+   struct mulle_allocator   *allocator;
+   z_stream                 strm;
+   int                      ret;
 
    /* allocate deflate state */
    memset( &strm, 0, sizeof( z_stream));
 
-   data = [NSMutableData data];
-   size = 0;
+   /*
+    * by "chance" zlib allocators are the same as mulle_allocators
+    * we use mulle_allocators to catch leaks
+    */
+   allocator   = MulleObjCObjectGetAllocator( self);
+   strm.zalloc = (alloc_func) mulle_allocator_calloc;
+   strm.zfree  = (free_func) mulle_allocator_free;
+   strm.opaque = allocator;
 
    ret = deflateInit( &strm, level);
    if (ret != Z_OK)
@@ -26,10 +33,13 @@
       return( nil);
    }
 
+   data = [NSMutableData data];
+   size = 0;
+
    strm.avail_in = [self length];
    strm.next_in  = [self bytes];
 
-   for(;;) 
+   for(;;)
    {
       if( size >= strm.total_out)
       {
@@ -39,7 +49,7 @@
       strm.next_out  = (Bytef *) [data mutableBytes] + strm.total_out;
       strm.avail_out = size - strm.total_out;
       ret = deflate(&strm, Z_FINISH);    /* no bad return value */
-      switch( ret)  
+      switch( ret)
       {
       case Z_OK :
          break;
@@ -48,7 +58,7 @@
          [data increaseLengthBy:strm.total_out < 1024 ? 1024 : strm.total_out];
          size = [data length];
          break;
-      
+
       case Z_STREAM_END:
          [data setLength:strm.total_out];
          (void) deflateEnd( &strm);
@@ -58,26 +68,35 @@
          (void) deflateEnd( &strm);
          return( nil);
       }
-   } 
+   }
 }
+
 
 - (NSData *) zlibCompressedData;
 {
-   return( [self zlibCompressedDataWithCompressionLevel:7]);
+   return( [self zlibCompressedDataWithCompressionLevel:6]);
 }
+
 
 - (NSData *) zlibDecompressedData
 {
-   NSMutableData   *data;
-   NSUInteger      size;
-   z_stream        strm;
-   int             ret;
+   NSMutableData            *data;
+   NSUInteger               size;
+   struct mulle_allocator   *allocator;
+   z_stream                 strm;
+   int                      ret;
 
    /* allocate inflate state */
    memset( &strm, 0, sizeof( z_stream));
 
-   data = [NSMutableData data];
-   size = 0;
+   /*
+    * by "chance" zlib allocators are the same as mulle_allocators
+    * we use mulle_allocators to catch leaks
+    */
+   allocator   = MulleObjCObjectGetAllocator( self);
+   strm.zalloc = (alloc_func) mulle_allocator_calloc;
+   strm.zfree  = (free_func) mulle_allocator_free;
+   strm.opaque = allocator;
 
    ret = inflateInit2( &strm, 15 + 32);
    if (ret != Z_OK)
@@ -87,10 +106,13 @@
       return( nil);
    }
 
+   data = [NSMutableData data];
+   size = 0;
+
    strm.avail_in = [self length];
    strm.next_in  = [self bytes];
 
-   for(;;) 
+   for(;;)
    {
       if( size >= strm.total_out)
       {
@@ -99,8 +121,8 @@
       }
       strm.next_out  = (Bytef *) [data mutableBytes] + strm.total_out;
       strm.avail_out = size - strm.total_out;
-      ret = inflate(&strm, Z_BLOCK);    /* no bad return value */
-      switch( ret)  
+      ret = inflate( &strm, Z_BLOCK);    /* no bad return value */
+      switch( ret)
       {
       case Z_OK :
          break;
@@ -119,7 +141,7 @@
          (void) inflateEnd( &strm);
          return( nil);
       }
-   } 
+   }
 }
 
 @end

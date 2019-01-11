@@ -6,7 +6,7 @@
 int   __MULLE_OBJC_ZLIB_FOUNDATION_ranlib__;
 
 
-uint32_t   Mulle_ObjC_Zlib_Foundation_get_version( void)
+uint32_t   MulleObjCZlibFoundation_get_version( void)
 {
    return( MULLE_OBJC_ZLIB_FOUNDATION_VERSION);
 }

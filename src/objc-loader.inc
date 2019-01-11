@@ -1,7 +1,2 @@
-/*
-   This file will will be overwritten once you have a sourcetree.
-   Until then (and a run of mulle-sde update) it's just empty, which is fine.
-
-   DO NOT EDIT. YOUR CHANGES WILL BE LOST!
-
-*/
+      { @selector( MulleObjCLoader), @selector( MulleObjCStandardFoundation) },      // 47a9beb6;MulleObjCLoader;ed704a42;MulleObjCStandardFoundation
+      { @selector( NSData), @selector( MulleObjCZlibFoundation) },      // 8fce7861;NSData;37d4a3c4;MulleObjCZlibFoundation
