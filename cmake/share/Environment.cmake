@@ -153,9 +153,12 @@ if( NOT __ENVIRONMENT__CMAKE__)
    # https://stackoverflow.com/questions/32469953/why-is-cmake-designed-so-that-it-removes-runtime-path-when-installing/32470070#32470070
    # MULLE_NO_CMAKE_INSTALL_RPATH can be used to kill this codepath
    #
-   if( NOT CMAKE_INSTALL_RPATH AND NOT MULLE_NO_CMAKE_INSTALL_RPATH)
-      set( CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
-      set( CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+   if( NOT MULLE_NO_CMAKE_INSTALL_RPATH)
+      if( APPLE)
+         set( CMAKE_INSTALL_RPATH "@rpath/../lib")
+      else()
+         set( CMAKE_INSTALL_RPATH "\$ORIGIN/../lib")
+      endif()
    endif()
 
    include( EnvironmentAux OPTIONAL)

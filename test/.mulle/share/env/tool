@@ -50,7 +50,9 @@ stty
 su
 sync
 tail
+tee
 test
+touch
 tr
 true
 umount
