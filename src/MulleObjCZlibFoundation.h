@@ -7,7 +7,7 @@
  *
  *  version:  major, minor, patch
  */
-#define MULLE_OBJC_ZLIB_FOUNDATION_VERSION  ((0 << 20) | (7 << 8) | 56)
+#define MULLE_OBJC_ZLIB_FOUNDATION_VERSION  ((0 << 20) | (15 << 8) | 0)
 
 
 static inline unsigned int   Mulle_ObjC_Zlib_Foundation_get_version_major( void)

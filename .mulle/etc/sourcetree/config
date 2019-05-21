@@ -1,4 +1,4 @@
 craftinfo/zlib;local;no-delete,no-header,no-link,no-share,no-update;4f1900f2-d143-406b-baca-bc38c98018fa;craftinfo/zlib;;;;
 MulleObjCStandardFoundation;tar;;4260f3a0-9e92-4776-a29c-9326ee153098;${MULLE_OBJC_STANDARD_FOUNDATION_URL:-https://github.com/MulleFoundation/MulleObjCStandardFoundation/archive/${MULLE_OBJC_STANDARD_FOUNDATION_BRANCH:-latest}.tar.gz};;;;
 z;none;no-all-load,no-build,no-cmakeinherit,no-delete,no-dependency,no-fs,no-import,no-update,only-os-darwin;3da2738b-6ef6-4a45-9bc6-c5168357f7e3;z;;;;include=zlib.h
-zlib;tar;no-all-load,no-cmakeinherit,no-import,no-os-darwin;d88f3c0d-aca6-4387-9123-dc859b291ba2;${ZLIB_URL:-https://github.com/madler/zlib/archive/${ZLIB_BRANCH:-v1}.2.11.tar.gz};;;;base64:YWxpYXNlcz16CmluY2x1ZGU9emxpYi5oCg==
+zlib;tar;no-all-load,no-cmakeinherit,no-import,no-os-darwin;d88f3c0d-aca6-4387-9123-dc859b291ba2;${ZLIB_URL:-https://github.com/madler/zlib/archive/${ZLIB_BRANCH:-v1.2.11}.tar.gz};;;;base64:YWxpYXNlcz16CmluY2x1ZGU9emxpYi5oCg==
