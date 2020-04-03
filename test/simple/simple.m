@@ -1,4 +1,4 @@
-#import <MulleObjCZlibFoundation/MulleObjCZlibFoundation.h>
+#import <MulleZlib/MulleZlib.h>
 
 
 void  check( int no, char *s, size_t len)
@@ -9,10 +9,10 @@ void  check( int no, char *s, size_t len)
 
 	data = [NSData dataWithBytes:s
 				        	 	 length:len];
-	compressed = [data zlibCompressedData];
+	compressed = [data mulleZlibCompressedData];
 	if( ! compressed && len)
 		printf( "#%d: COMPRESSION FAIL\n", no);
-	decompressed = [compressed zlibDecompressedData];
+	decompressed = [compressed mulleZlibDecompressedData];
 	if( ! decompressed && len)
 		printf( "#%d:DECOMPRESSION FAIL\n", no);
 	if( ! [data isEqualToData:decompressed])
@@ -37,15 +37,15 @@ int  main( void)
 "With the formation of the Bundesliga, Germany's new professional league, in "
 "1963 VfL found itself in the third tier Amateurliga Westfalen. A first-place "
 "result there in 1965 raised them to the Regionalliga West (II), from which they "
-"began a steady climb up the league table to the Bundesliga in 1971. During this " 
-"rise, Bochum also played its way to the final of the 1967–68 DFB-Pokal, where" 
+"began a steady climb up the league table to the Bundesliga in 1971. During this "
+"rise, Bochum also played its way to the final of the 1967–68 DFB-Pokal, where"
 "they lost 1–4 to 1. FC Köln."
 ""
-"In spite of being a perennial lower table side, Bochum developed a reputation" 
+"In spite of being a perennial lower table side, Bochum developed a reputation"
 "for tenaciousness on the field in a run of 20 seasons in the top flight. The "
 "club made a repeat appearance in the DFB-Pokal final in 1988, losing 0–1 to "
-"Eintracht Frankfurt. Relegated after a 16th-place finish in the 1992–93 season, "  
-"the team has become a classic \"yo-yo club\", bouncing up and down between the " 
+"Eintracht Frankfurt. Relegated after a 16th-place finish in the 1992–93 season, "
+"the team has become a classic \"yo-yo club\", bouncing up and down between the "
 "Bundesliga and 2. Bundesliga. The club's best Bundesliga results have come "
 "relatively recently as fifth-place finishes in 1996–97 and 2003–04, which "
 "earned them appearances in the UEFA Cup. In 1997, they advanced to the third "

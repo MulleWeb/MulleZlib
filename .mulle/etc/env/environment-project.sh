@@ -1,7 +1,7 @@
 #
 #
 #
-export PROJECT_NAME="MulleObjCZlibFoundation"
+export PROJECT_NAME="MulleZlib"
 
 
 #
@@ -37,18 +37,18 @@ export PROJECT_EXTENSIONS="m:aam"
 #
 #
 #
-export PROJECT_IDENTIFIER="MulleObjCZlibFoundation"
+export PROJECT_IDENTIFIER="MulleZlib"
 
 
 #
 #
 #
-export PROJECT_DOWNCASE_IDENTIFIER="mulle_objc_zlib_foundation"
+export PROJECT_DOWNCASE_IDENTIFIER="mulle_zlib"
 
 
 #
 #
 #
-export PROJECT_UPCASE_IDENTIFIER="MULLE_OBJC_ZLIB_FOUNDATION"
+export PROJECT_UPCASE_IDENTIFIER="MULLE_ZLIB"
 
 

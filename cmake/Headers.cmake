@@ -15,8 +15,8 @@ include( _Headers)
 
 # add ignored headers back in so that the generators pick them up
 set( PUBLIC_HEADERS
-"src/_MulleObjCZlibFoundation-import.h"
-"src/_MulleObjCZlibFoundation-include.h"
+"src/_MulleZlib-import.h"
+"src/_MulleZlib-include.h"
 ${PUBLIC_HEADERS}
 )
 
@@ -34,8 +34,8 @@ list( REMOVE_ITEM INSTALL_PRIVATE_HEADERS "include-private.h")
 
 # add ignored headers back in so that the generators pick them up
 set( PRIVATE_HEADERS
-"src/_MulleObjCZlibFoundation-import-private.h"
-"src/_MulleObjCZlibFoundation-include-private.h"
+"src/_MulleZlib-import-private.h"
+"src/_MulleZlib-include-private.h"
 ${PRIVATE_HEADERS}
 )
 

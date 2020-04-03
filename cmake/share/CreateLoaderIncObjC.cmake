@@ -8,7 +8,7 @@ if( MULLE_TRACE_INCLUDE)
    message( STATUS "# Include \"${CMAKE_CURRENT_LIST_FILE}\"" )
 endif()
 
-# this is the the second part, the option is in DefineLoaderIncObjC.cmake
+# this is the second part, the option is in DefineLoaderIncObjC.cmake
 
 if( CREATE_OBJC_LOADER_INC)
    if( NOT LIBRARY_NAME)
@@ -48,10 +48,10 @@ if( CREATE_OBJC_LOADER_INC)
 
    # The preferred way:
    #
-   # _1_MulleObjCZlibFoundation is an object library (a collection of files).
-   # _2_MulleObjCZlibFoundation is the loader with OBJC_LOADER_INC.
+   # _1_MulleZlib is an object library (a collection of files).
+   # _2_MulleZlib is the loader with OBJC_LOADER_INC.
    #
-   # Produce a static library _3_MulleObjCZlibFoundation from _1_MulleObjCZlibFoundation
+   # Produce a static library _3_MulleZlib from _1_MulleZlib
    # to feed into MULLE_OBJC_LOADER_TOOL.
    #
    # The static library is, so that the commandline doesn't overflow for

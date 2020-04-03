@@ -15,9 +15,9 @@ endif()
 
 # include before (!)
 
-include( StandaloneAuxC OPTIONAL)
-
 if( STANDALONE)
+   include( PreStandaloneAuxC OPTIONAL)
+
    if( NOT LIBRARY_NAME)
       set( LIBRARY_NAME "${PROJECT_NAME}")
    endif()
@@ -27,7 +27,7 @@ if( STANDALONE)
    endif()
 
    if( NOT STANDALONE_DEFINITIONS)
-      set( STANDALONE_DEFINITIONS ${MULLE_OBJC_ZLIB_FOUNDATION_DEFINITIONS})
+      set( STANDALONE_DEFINITIONS ${mulle_zlib_DEFINITIONS})
    endif()
 
    #
@@ -66,7 +66,7 @@ if( STANDALONE)
       if( NOT STANDALONE_SOURCES)
          message( FATAL_ERROR "You need to define STANDALONE_SOURCES. Add a file
 ${STANDALONE_LIBRARY_NAME}.c with contents like this to it:
-int  ___mulle_objc_zlib_foundation_unused__;
+int  ___mulle_zlib_unused__;
 and everybody will be happy")
       endif()
 
@@ -159,6 +159,8 @@ and everybody will be happy")
          ${INSTALL_LIBRARY_TARGETS}
          ${STANDALONE_LIBRARY_NAME}
       )
+
+      include( PostStandaloneAuxC OPTIONAL)
 
       message( STATUS "STANDALONE_LIBRARY_NAME is ${STANDALONE_LIBRARY_NAME}")
       message( STATUS "STANDALONE_ALL_LOAD_LIBRARIES is ${STANDALONE_ALL_LOAD_LIBRARIES}")

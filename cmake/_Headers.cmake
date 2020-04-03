@@ -15,8 +15,8 @@ src/include-private.h
 )
 
 set( PUBLIC_HEADERS
-src/MulleObjCZlibFoundation.h
-src/NSData+MulleObjCZlibFoundation.h
+src/MulleZlib.h
+src/NSData+MulleZlib.h
 src/import.h
 src/include.h
 )

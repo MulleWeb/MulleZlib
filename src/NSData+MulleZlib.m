@@ -1,11 +1,11 @@
-#import "NSData+MulleObjCZlibFoundation.h"
+#import "NSData+MulleZlib.h"
 
 #import "import-private.h"
 
 
-@implementation NSData( MulleObjCZlibFoundation)
+@implementation NSData( MulleZlib)
 
-- (NSData *) zlibCompressedDataWithCompressionLevel:(int) level
+- (NSData *) mulleZlibCompressedDataWithCompressionLevel:(int) level
 {
    NSMutableData            *data;
    NSUInteger               size;
@@ -20,7 +20,7 @@
     * by "chance" zlib allocators are the same as mulle_allocators
     * we use mulle_allocators to catch leaks
     */
-   allocator   = MulleObjCObjectGetAllocator( self);
+   allocator   = MulleObjCInstanceGetAllocator( self);
    strm.zalloc = (alloc_func) mulle_allocator_calloc;
    strm.zfree  = (free_func) mulle_allocator_free;
    strm.opaque = allocator;
@@ -72,13 +72,13 @@
 }
 
 
-- (NSData *) zlibCompressedData;
+- (NSData *) mulleZlibCompressedData;
 {
-   return( [self zlibCompressedDataWithCompressionLevel:6]);
+   return( [self mulleZlibCompressedDataWithCompressionLevel:6]);
 }
 
 
-- (NSData *) zlibDecompressedData
+- (NSData *) mulleZlibDecompressedData
 {
    NSMutableData            *data;
    NSUInteger               size;
@@ -93,7 +93,7 @@
     * by "chance" zlib allocators are the same as mulle_allocators
     * we use mulle_allocators to catch leaks
     */
-   allocator   = MulleObjCObjectGetAllocator( self);
+   allocator   = MulleObjCInstanceGetAllocator( self);
    strm.zalloc = (alloc_func) mulle_allocator_calloc;
    strm.zfree  = (free_func) mulle_allocator_free;
    strm.opaque = allocator;

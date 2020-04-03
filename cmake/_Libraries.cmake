@@ -21,7 +21,7 @@ if( ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
       #
       if( Z_LIBRARY)
          #
-         # Add to Z_LIBRARY list.
+         # Add to Z_LIBRARY to OS_SPECIFIC_LIBRARIES list.
          # Disable with: `mulle-sourcetree mark z no-cmakeadd`
          #
          set( OS_SPECIFIC_LIBRARIES

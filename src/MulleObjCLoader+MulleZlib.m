@@ -1,7 +1,7 @@
 #import "import.h"
 
 
-@implementation MulleObjCLoader( MulleObjCZlibFoundation)
+@implementation MulleObjCLoader( MulleZlib)
 
 + (struct _mulle_objc_dependency *) dependencies
 {

@@ -1,6 +1,6 @@
 cmake_minimum_required( VERSION 3.1)
 
-project( MulleObjCZlibFoundation C)
+project( MulleZlib C)
 
 
 ### mulle-sde environment
@@ -16,9 +16,9 @@ include( Files)
 ### Library
 
 if( HEADERS_PHASE)
-   install( FILES ${INSTALL_PUBLIC_HEADERS}  DESTINATION "include/MulleObjCZlibFoundation")
-   install( FILES ${INSTALL_PRIVATE_HEADERS} DESTINATION "include/MulleObjCZlibFoundation/private")
-   install( FILES ${CMAKE_INCLUDES}          DESTINATION "include/MulleObjCZlibFoundation/cmake")
+   install( FILES ${INSTALL_PUBLIC_HEADERS}  DESTINATION "include/MulleZlib")
+   install( FILES ${INSTALL_PRIVATE_HEADERS} DESTINATION "include/MulleZlib/private")
+   install( FILES ${CMAKE_INCLUDES}          DESTINATION "include/MulleZlib/cmake")
 
    # short cut out
    if( NOT COMPILE_PHASE AND NOT LINK_PHASE)

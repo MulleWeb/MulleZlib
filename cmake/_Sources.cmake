@@ -6,14 +6,10 @@ if( MULLE_TRACE_INCLUDE)
 endif()
 
 set( SOURCES
-src/MulleObjCZlibFoundation.m
-src/NSData+MulleObjCZlibFoundation.m
+src/MulleZlib.m
+src/NSData+MulleZlib.m
 )
 
 set( STAGE2_SOURCES
-src/MulleObjCLoader+MulleObjCZlibFoundation.m
-)
-
-set( STANDALONE_SOURCES
-src/MulleObjCZlibFoundation-standalone.m
+src/MulleObjCLoader+MulleZlib.m
 )
