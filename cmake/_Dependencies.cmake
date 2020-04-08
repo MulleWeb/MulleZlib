@@ -12,7 +12,7 @@ endif()
 #
 if( NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
    if( NOT Z_LIBRARY)
-      find_library( Z_LIBRARY NAMES ${CMAKE_STATIC_LIBRARY_PREFIX}z${CMAKE_STATIC_LIBRARY_SUFFIX} z NO_CMAKE_SYSTEM_PATH)
+      find_library( Z_LIBRARY NAMES ${CMAKE_STATIC_LIBRARY_PREFIX}z${CMAKE_STATIC_LIBRARY_SUFFIX} z NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH)
       message( STATUS "Z_LIBRARY is ${Z_LIBRARY}")
       #
       # The order looks ascending, but due to the way this file is read
@@ -20,7 +20,7 @@ if( NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
       #
       if( Z_LIBRARY)
          #
-         # Add to Z_LIBRARY to DEPENDENCY_LIBRARIES list.
+         # Add Z_LIBRARY to DEPENDENCY_LIBRARIES list.
          # Disable with: `mulle-sourcetree mark zlib no-cmakeadd`
          #
          set( DEPENDENCY_LIBRARIES
@@ -41,7 +41,7 @@ endif()
 # Disable with: `mulle-sourcetree mark MulleObjCValueFoundation no-link`
 #
 if( NOT MULLE_OBJC_VALUE_FOUNDATION_LIBRARY)
-   find_library( MULLE_OBJC_VALUE_FOUNDATION_LIBRARY NAMES ${CMAKE_STATIC_LIBRARY_PREFIX}MulleObjCValueFoundation${CMAKE_STATIC_LIBRARY_SUFFIX} MulleObjCValueFoundation NO_CMAKE_SYSTEM_PATH)
+   find_library( MULLE_OBJC_VALUE_FOUNDATION_LIBRARY NAMES ${CMAKE_STATIC_LIBRARY_PREFIX}MulleObjCValueFoundation${CMAKE_STATIC_LIBRARY_SUFFIX} MulleObjCValueFoundation NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH)
    message( STATUS "MULLE_OBJC_VALUE_FOUNDATION_LIBRARY is ${MULLE_OBJC_VALUE_FOUNDATION_LIBRARY}")
    #
    # The order looks ascending, but due to the way this file is read
@@ -49,7 +49,7 @@ if( NOT MULLE_OBJC_VALUE_FOUNDATION_LIBRARY)
    #
    if( MULLE_OBJC_VALUE_FOUNDATION_LIBRARY)
       #
-      # Add to MULLE_OBJC_VALUE_FOUNDATION_LIBRARY to ALL_LOAD_DEPENDENCY_LIBRARIES list.
+      # Add MULLE_OBJC_VALUE_FOUNDATION_LIBRARY to ALL_LOAD_DEPENDENCY_LIBRARIES list.
       # Disable with: `mulle-sourcetree mark MulleObjCValueFoundation no-cmakeadd`
       #
       set( ALL_LOAD_DEPENDENCY_LIBRARIES
@@ -99,7 +99,7 @@ if( NOT MULLE_OBJC_VALUE_FOUNDATION_LIBRARY)
          endif()
       endforeach()
       #
-      # Search for "objc-loader.inc" in include directory.
+      # Search for "MulleObjCLoader+<name>.h" in include directory.
       # Disable with: `mulle-sourcetree mark MulleObjCValueFoundation no-cmakeloader`
       #
       if( NOT NO_INHERIT_OBJC_LOADERS)
