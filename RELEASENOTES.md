@@ -1,3 +1,7 @@
+### 0.15.2
+
+* improved README
+
 ### 0.15.1
 
 * Various small improvements
