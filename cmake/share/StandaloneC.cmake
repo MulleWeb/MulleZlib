@@ -31,7 +31,7 @@ if( STANDALONE)
    endif()
 
    if( NOT STANDALONE_DEFINITIONS)
-      set( STANDALONE_DEFINITIONS ${mulle_zlib_DEFINITIONS})
+      set( STANDALONE_DEFINITIONS ${MULLE_ZLIB_DEFINITIONS})
    endif()
 
    #
