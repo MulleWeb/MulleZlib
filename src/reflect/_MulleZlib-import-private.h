@@ -12,8 +12,12 @@
 #ifndef _MulleZlib_import_private_h__
 #define _MulleZlib_import_private_h__
 
-#include "_MulleZlib-include-private.h"
-
 /* no headers */
+
+#ifdef __has_include
+# if __has_include( "_MulleZlib-include.h")
+#  include "_MulleZlib-include-private.h"
+# endif
+#endif
 
 #endif

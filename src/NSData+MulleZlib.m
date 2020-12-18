@@ -33,7 +33,7 @@
       return( nil);
    }
 
-   data = [NSMutableData data];
+   data = [NSMutableData object];
    size = 0;
 
    strm.avail_in = [self length];
@@ -106,7 +106,7 @@
       return( nil);
    }
 
-   data = [NSMutableData data];
+   data = [NSMutableData object];
    size = 0;
 
    strm.avail_in = [self length];

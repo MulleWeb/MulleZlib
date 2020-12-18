@@ -8,8 +8,8 @@ if( MULLE_TRACE_INCLUDE)
 endif()
 
 #
-# Generated from sourcetree: z;no-all-load,no-cmakeinherit,no-import,only-os-darwin;
-# Disable with: `mulle-sourcetree mark z no-link`
+# Generated from sourcetree: z;no-all-load,no-build,no-cmakeinherit,no-delete,no-dependency,no-fs,no-import,no-update,only-os-darwin;
+# Disable with: `mulle-sourcetree mark z `
 #
 if( ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
    if( NOT Z_LIBRARY)
