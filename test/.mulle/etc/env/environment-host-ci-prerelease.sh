@@ -313,7 +313,7 @@ export MULLE_ZLIB_NODETYPE="git"
 #
 # MulleZlib url: ${MULLE_ZLIB_URL:-https://github.com/MulleFoundation/MulleObjCZlibFoundation/archive/${MULLE_TAG}.tar.gz}
 #
-export MULLE_ZLIB_URL="https://github.com/MulleFoundation/MulleObjCZlibFoundation.git"
+export MULLE_ZLIB_URL="https://github.com/MulleFoundation/MulleZlib.git"
 
 
 #
