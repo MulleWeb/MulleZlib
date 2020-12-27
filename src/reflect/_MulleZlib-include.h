@@ -16,32 +16,22 @@
 //    remove:             `mulle-sourcetree mark z no-header`
 //    rename:             `mulle-sde dependency|library set z include whatever.h`
 //    toggle #import:     `mulle-sourcetree mark z [no-]import`
-//    toggle localheader: `mulle-sourcetree mark z [no-]localheader`
 //    toggle public:      `mulle-sourcetree mark z [no-]public`
 //    toggle optional:    `mulle-sourcetree mark z [no-]require`
 //    remove for os:      `mulle-sourcetree mark z no-os-<osname>`
 # if defined( __APPLE__)
-#  if defined( __has_include) && __has_include("zlib.h")
-#     include "zlib.h"   // z
-#  else
-#     include <zlib.h>   // z
-#  endif
+#  include <zlib.h>   // z
 # endif
 
 // How to tweak the following zlib #include
 //    remove:             `mulle-sourcetree mark zlib no-header`
 //    rename:             `mulle-sde dependency|library set zlib include whatever.h`
 //    toggle #import:     `mulle-sourcetree mark zlib [no-]import`
-//    toggle localheader: `mulle-sourcetree mark zlib [no-]localheader`
 //    toggle public:      `mulle-sourcetree mark zlib [no-]public`
 //    toggle optional:    `mulle-sourcetree mark zlib [no-]require`
 //    remove for os:      `mulle-sourcetree mark zlib no-os-<osname>`
 # if ! defined( __APPLE__)
-#  if defined( __has_include) && __has_include("zlib.h")
-#     include "zlib.h"   // zlib
-#  else
-#     include <zlib.h>   // zlib
-#  endif
+#  include <zlib.h>   // zlib
 # endif
 
 #endif
