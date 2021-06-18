@@ -37,18 +37,18 @@ export PROJECT_EXTENSIONS="m:aam"
 #
 #
 #
-export PROJECT_IDENTIFIER="MulleZlib"
 
-
-#
-#
-#
-export PROJECT_DOWNCASE_IDENTIFIER="mulle_zlib"
 
 
 #
 #
 #
-export PROJECT_UPCASE_IDENTIFIER="MULLE_ZLIB"
+
+
+
+#
+#
+#
+
 
 

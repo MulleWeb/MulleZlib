@@ -4,13 +4,6 @@
 
 Compression and decompression of NSData.
 
-Build Status | Release Version
--------------|-----------------------------------
-[![Build Status](https://travis-ci.org/MulleWeb/MulleZlib.svg?branch=release)](https://travis-ci.org/MulleWeb/MulleZlib) | ![Mulle kybernetiK tag](https://img.shields.io/github/tag/MulleWeb/MulleZlib.svg) [![Build Status](https://travis-ci.org/MulleWeb/MulleZlib.svg?branch=release)](https://travis-ci.org/MulleWeb/MulleZlib)
-
-
-## About
-
 Adds the following compression and decompressions methods to **NSData**:
 
 ```
@@ -36,6 +29,25 @@ s            = [NSString mulleStringWithData:decompressed
                                     encoding:NSUTF8StringEncoding];
 ```
 
+### You are here
+
+```
+  .------------------------------------------------.
+  | MulleWebClient                                 |
+  '------------------------------------------------'
+                    .------------..----------------.
+                    | JSMN       || HTTP           |
+                    '------------''----------------'
+  .----------------..------------..----------------.
+  | Curl           || Plist      || Inet           |
+  '----------------''------------''----------------'
+  .=========..-----------------------------.
+  | Zlib    || Standard                    |
+  '=========''-----------------------------'
+  .----------------------------------------..------.
+  | Value                                  || Lock |
+  '----------------------------------------''------'
+```
 
 ## Add
 
