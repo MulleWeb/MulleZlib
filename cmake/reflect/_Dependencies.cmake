@@ -15,7 +15,7 @@ endif()
 #
 # Generated from sourcetree: d88f3c0d-aca6-4387-9123-dc859b291ba2;zlib;no-all-load,no-cmake-inherit,no-import,no-platform-darwin;z
 # Disable with : `mulle-sourcetree mark zlib no-link`
-# Disable for this platform: `mulle-sourcetree mark zlib no-cmake-platform-darwin`
+# Disable for this platform: `mulle-sourcetree mark zlib no-cmake-platform-linux`
 #
 if( NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
    if( NOT Z_LIBRARY)
@@ -47,7 +47,7 @@ endif()
 #
 # Generated from sourcetree: 034E9719-2B71-4602-80AA-3DEF89C525CA;MulleObjCValueFoundation;no-singlephase;
 # Disable with : `mulle-sourcetree mark MulleObjCValueFoundation no-link`
-# Disable for this platform: `mulle-sourcetree mark MulleObjCValueFoundation no-cmake-platform-darwin`
+# Disable for this platform: `mulle-sourcetree mark MulleObjCValueFoundation no-cmake-platform-linux`
 #
 if( NOT MULLE_OBJC_VALUE_FOUNDATION_LIBRARY)
    find_library( MULLE_OBJC_VALUE_FOUNDATION_LIBRARY NAMES ${CMAKE_STATIC_LIBRARY_PREFIX}MulleObjCValueFoundation${CMAKE_STATIC_LIBRARY_SUFFIX} MulleObjCValueFoundation NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH)

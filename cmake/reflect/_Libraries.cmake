@@ -16,7 +16,7 @@ endif()
 #
 # Generated from sourcetree: 3da2738b-6ef6-4a45-9bc6-c5168357f7e3;z;no-all-load,no-build,no-cmake-inherit,no-delete,no-dependency,no-fs,no-import,no-update,only-platform-darwin;
 # Disable with : `mulle-sourcetree mark z `
-# Disable for this platform: `mulle-sourcetree mark z no-cmake-platform-darwin`
+# Disable for this platform: `mulle-sourcetree mark z no-cmake-platform-linux`
 #
 if( ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
    if( NOT Z_LIBRARY)
