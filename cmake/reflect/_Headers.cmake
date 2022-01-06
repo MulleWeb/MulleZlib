@@ -55,5 +55,6 @@ src/include.h
 set( PUBLIC_HEADERS
 src/MulleZlib.h
 src/NSData+MulleZlib.h
+src/reflect/_MulleZlib-versioncheck.h
 )
 

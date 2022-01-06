@@ -7,7 +7,7 @@
  *
  *  version:  major, minor, patch
  */
-#define MULLE_ZLIB_VERSION  ((0 << 20) | (15 << 8) | 5)
+#define MULLE_ZLIB_VERSION  ((0 << 20) | (15 << 8) | 6)
 
 
 static inline unsigned int   MulleZlib_get_version_major( void)
@@ -37,3 +37,12 @@ extern uint32_t   MulleZlib_get_version( void);
    # include "foo.h"
 */
 #import "NSData+MulleZlib.h"
+
+
+
+#ifdef __has_include
+# if __has_include( "_MulleZlib-versioncheck.h")
+#  include "_MulleZlib-versioncheck.h"
+# endif
+#endif
+
