@@ -6,7 +6,7 @@ Compression and decompression of NSData.
 
 Adds the following compression and decompressions methods to **NSData**:
 
-```
+``` objc
 - (NSData *) mulleZlibCompressedDataWithCompressionLevel:(int) level;
 - (NSData *) mulleZlibCompressedData;
 - (NSData *) mulleZlibDecompressedData;
@@ -16,7 +16,7 @@ Adds the following compression and decompressions methods to **NSData**:
 
 Compress and decompress a string:
 
-```
+``` objc
 NSData     *data;
 NSData     *compressed;
 NSData     *decompressed;
@@ -39,7 +39,7 @@ s            = [NSString mulleStringWithData:decompressed
 
 Use [mulle-sde](//github.com/mulle-sde) to add MulleZlib to your project:
 
-```
+``` sh
 mulle-sde dependency add --objc --github MulleWeb MulleZlib
 ```
 
@@ -48,7 +48,7 @@ mulle-sde dependency add --objc --github MulleWeb MulleZlib
 Use [mulle-sde](//github.com/mulle-sde) to build and install MulleZlib and
 all its dependencies:
 
-```
+``` sh
 mulle-sde install --objc --prefix /usr/local \
    https://github.com/MulleWeb/MulleZlib/archive/latest.tar.gz
 ```
