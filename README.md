@@ -2,17 +2,18 @@
 
 #### 🐘 Zlib compression for mulle-objc
 
+
 Compression and decompression of NSData.
 
-Adds the following compression and decompressions methods to **NSData**:
+| Release Version                                       | Release Notes
+|-------------------------------------------------------|--------------
+| ![Mulle kybernetiK tag](https://img.shields.io/github/tag//MulleZlib.svg?branch=release) [![Build Status](https://github.com//MulleZlib/workflows/CI/badge.svg?branch=release)](//github.com//MulleZlib/actions)| [RELEASENOTES](RELEASENOTES.md) |
 
-``` objc
-- (NSData *) mulleZlibCompressedDataWithCompressionLevel:(int) level;
-- (NSData *) mulleZlibCompressedData;
-- (NSData *) mulleZlibDecompressedData;
-```
 
-#### Example:
+
+
+
+## Example
 
 Compress and decompress a string:
 
@@ -30,9 +31,26 @@ s            = [NSString mulleStringWithData:decompressed
 ```
 
 
-### You are here
 
+## API
+
+Adds the following compression and decompressions methods to **NSData**:
+
+``` objc
+- (NSData *) mulleZlibCompressedDataWithCompressionLevel:(int) level;
+- (NSData *) mulleZlibCompressedData;
+- (NSData *) mulleZlibDecompressedData;
+```
+
+
+## Overview
 ![Overview](overview.dot.svg)
+
+| Requirement                                  | Description
+|----------------------------------------------|-----------------------
+| [zlib](https://github.com/madler/zlib)             | 
+| [MulleFoundationBase](https://github.com/MulleFoundation/MulleFoundationBase)             | 🛸 MulleFoundationBase does something
+| [mulle-objc-list](https://github.com/mulle-objc/mulle-objc-list)             | 📒 Lists mulle-objc runtime information contained in executables.
 
 
 ## Add
@@ -40,27 +58,43 @@ s            = [NSString mulleStringWithData:decompressed
 Use [mulle-sde](//github.com/mulle-sde) to add MulleZlib to your project:
 
 ``` sh
-mulle-sde dependency add --objc --github MulleWeb MulleZlib
+mulle-sde add github:MulleWeb/MulleZlib
 ```
 
 ## Install
 
-Use [mulle-sde](//github.com/mulle-sde) to build and install MulleZlib and
-all its dependencies:
+### Install with mulle-sde
+
+Use [mulle-sde](//github.com/mulle-sde) to build and install MulleZlib and all dependencies:
 
 ``` sh
-mulle-sde install --objc --prefix /usr/local \
-   https://github.com/MulleWeb/MulleZlib/archive/latest.tar.gz
+mulle-sde install --prefix /usr/local \
+   https://github.com//MulleZlib/archive/latest.tar.gz
 ```
 
-## Acknowledgements
+### Manual Installation
 
-MulleZlib links against [zlib](https://www.zlib.net/). zlib was written by
-Jean-loup Gailly (compression) and Mark Adler (decompression)
+Install the [requirements](#Overview) and then install
+**MulleZlib**
+with [cmake](https://cmake.org). Here `/usr/local` is chosen as the install
+prefix:
+
+``` sh
+cmake -B build \
+      -DCMAKE_INSTALL_PREFIX=/usr/local \
+      -DCMAKE_PREFIX_PATH=/usr/local \
+      -DCMAKE_BUILD_TYPE=Release &&
+cmake --build build --config Release &&
+cmake --install build --config Release
+```
+
+## Platforms and Compilers
+
+All platforms and compilers supported by
+[mulle-c11](//github.com/mulle-c/mulle-c11).
 
 
 ## Author
 
-[Nat!](//www.mulle-kybernetik.com/weblog) for
-[Mulle kybernetiK](//www.mulle-kybernetik.com) and
-[Codeon GmbH](//www.codeon.de)
+[Nat!](https://mulle-kybernetik.com/weblog) for Mulle kybernetiK
+

@@ -1,0 +1,38 @@
+{
+   project =
+   {
+      description="🐘 Zlib compression for mulle-objc";
+      domain="github";
+      name="MulleZlib";
+      user="MulleWeb";
+      repo="MulleZlib";
+      homepage="https://github.com/MulleWeb/MulleZlib";
+      license="UNLICENSED"
+   };
+   dependencies =
+   (
+      {
+         domain="github";
+         name="zlib";
+         repo="zlib";
+         url="https://github.com/madler/zlib";
+         user="madler";
+      },
+      {
+         description="🛸 MulleFoundationBase does something";
+         domain="github";
+         name="MulleFoundationBase";
+         repo="MulleFoundationBase";
+         url="https://github.com/MulleFoundation/MulleFoundationBase";
+         user="MulleFoundation";
+      },
+      {
+         description="📒 Lists mulle-objc runtime information contained in executables.";
+         domain="github";
+         name="mulle-objc-list";
+         repo="mulle-objc-list";
+         url="https://github.com/mulle-objc/mulle-objc-list";
+         user="mulle-objc";
+      }
+   )
+}

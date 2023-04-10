@@ -1,0 +1,6 @@
+## Acknowledgements
+
+MulleZlib links against [zlib](https://www.zlib.net/). zlib was written by
+Jean-loup Gailly (compression) and Mark Adler (decompression)
+
+

@@ -1,0 +1,9 @@
+## API
+
+Adds the following compression and decompressions methods to **NSData**:
+
+``` objc
+- (NSData *) mulleZlibCompressedDataWithCompressionLevel:(int) level;
+- (NSData *) mulleZlibCompressedData;
+- (NSData *) mulleZlibDecompressedData;
+```

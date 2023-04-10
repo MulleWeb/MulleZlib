@@ -19,7 +19,9 @@ endif()
 #
 if( ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
    if( NOT Z_LIBRARY)
-      find_library( Z_LIBRARY NAMES z)
+      find_library( Z_LIBRARY NAMES
+         z
+      )
       message( STATUS "Z_LIBRARY is ${Z_LIBRARY}")
       #
       # The order looks ascending, but due to the way this file is read
@@ -30,11 +32,7 @@ if( ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
          # Add Z_LIBRARY to OS_SPECIFIC_LIBRARIES list.
          # Disable with: `mulle-sourcetree mark z no-cmake-add`
          #
-         set( OS_SPECIFIC_LIBRARIES
-            ${OS_SPECIFIC_LIBRARIES}
-            ${Z_LIBRARY}
-            CACHE INTERNAL "need to cache this"
-         )
+         list( APPEND OS_SPECIFIC_LIBRARIES ${Z_LIBRARY})
          # intentionally left blank
       else()
          # Disable with: `mulle-sourcetree mark z no-require-link`

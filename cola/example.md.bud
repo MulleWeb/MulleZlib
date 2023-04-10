@@ -1,0 +1,18 @@
+## Example
+
+Compress and decompress a string:
+
+``` objc
+NSData     *data;
+NSData     *compressed;
+NSData     *decompressed;
+NSString   *s;
+
+data         = [@"VfL Bochum 1848" dataUsingEncoding:NSUTF8StringEncoding];
+compressed   = [data mulleZlibCompressedData];
+decompressed = [compressed mulleZlibDecompressedData];
+s            = [NSString mulleStringWithData:decompressed
+                                    encoding:NSUTF8StringEncoding];
+```
+
+
