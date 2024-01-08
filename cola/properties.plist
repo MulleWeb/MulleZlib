@@ -7,7 +7,7 @@
       user="MulleWeb";
       repo="MulleZlib";
       homepage="https://github.com/MulleWeb/MulleZlib";
-      license="UNLICENSED"
+      license="BSD-3-Clause"
    };
    dependencies =
    (

@@ -1,0 +1,32 @@
+{
+   "name" : "MulleZlib",
+   "version" : "0.15.10",
+   "description" : "🐘 Zlib compression for mulle-objc",
+   "keywords" : [],
+   "license" : "BSD-3-Clause",
+   "repo" : "MulleWeb/MulleZlib",
+   "src" : [
+      "src/generic/import-private.h",
+      "src/generic/import.h",
+      "src/generic/include-private.h",
+      "src/generic/include.h",
+      "src/MulleObjCLoader+MulleZlib.m",
+      "src/MulleZlib.h",
+      "src/MulleZlib.m",
+      "src/NSData+MulleZlib.h",
+      "src/NSData+MulleZlib.m",
+      "src/reflect/objc-loader.inc",
+      "src/reflect/_MulleZlib-export.h",
+      "src/reflect/_MulleZlib-import-private.h",
+      "src/reflect/_MulleZlib-import.h",
+      "src/reflect/_MulleZlib-include-private.h",
+      "src/reflect/_MulleZlib-include.h",
+      "src/reflect/_MulleZlib-provide.h",
+      "src/reflect/_MulleZlib-versioncheck.h"
+   ],
+   "dependencies" : {
+      "madler/zlib": "*",
+      "MulleFoundation/MulleFoundationBase": "*",
+      "mulle-objc/mulle-objc-list": "*"
+   }
+}

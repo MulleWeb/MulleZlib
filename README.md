@@ -2,12 +2,12 @@
 
 #### 🐘 Zlib compression for mulle-objc
 
-
 Compression and decompression of NSData.
+
 
 | Release Version                                       | Release Notes
 |-------------------------------------------------------|--------------
-| ![Mulle kybernetiK tag](https://img.shields.io/github/tag//MulleZlib.svg?branch=release) [![Build Status](https://github.com//MulleZlib/workflows/CI/badge.svg?branch=release)](//github.com//MulleZlib/actions)| [RELEASENOTES](RELEASENOTES.md) |
+| ![Mulle kybernetiK tag](https://img.shields.io/github/tag/MulleWeb/MulleZlib.svg?branch=release) [![Build Status](https://github.com/MulleWeb/MulleZlib/workflows/CI/badge.svg?branch=release)](//github.com/MulleWeb/MulleZlib/actions) | [RELEASENOTES](RELEASENOTES.md) |
 
 
 
@@ -43,14 +43,9 @@ Adds the following compression and decompressions methods to **NSData**:
 ```
 
 
-## Overview
-![Overview](overview.dot.svg)
+### You are here
 
-| Requirement                                  | Description
-|----------------------------------------------|-----------------------
-| [zlib](https://github.com/madler/zlib)             | 
-| [MulleFoundationBase](https://github.com/MulleFoundation/MulleFoundationBase)             | 🛸 MulleFoundationBase does something
-| [mulle-objc-list](https://github.com/mulle-objc/mulle-objc-list)             | 📒 Lists mulle-objc runtime information contained in executables.
+![Overview](overview.dot.svg)
 
 
 ## Add
@@ -95,7 +90,7 @@ cmake --build build --config Release &&
 cmake --install build --config Release
 ```
 
-## Platforms and Compilers
+### Platforms and Compilers
 
 All platforms and compilers supported by
 [mulle-c11](//github.com/mulle-c/mulle-c11).
@@ -103,5 +98,5 @@ All platforms and compilers supported by
 
 ## Author
 
-[Nat!](https://mulle-kybernetik.com/weblog) for Mulle kybernetiK
+[Nat!](https://mulle-kybernetik.com/weblog) for Mulle kybernetiK  
 
