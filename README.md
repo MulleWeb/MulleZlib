@@ -74,7 +74,7 @@ Install the requirements:
 | Requirements                                 | Description
 |----------------------------------------------|-----------------------
 | [zlib](https://github.com/madler/zlib)             | 
-| [MulleFoundationBase](https://github.com/MulleFoundation/MulleFoundationBase)             | 🛸 MulleFoundationBase does something
+| [MulleFoundationBase](https://github.com/MulleFoundation/MulleFoundationBase)             | 🧱 MulleFoundationBase amalgamates Foundations projects
 | [mulle-objc-list](https://github.com/mulle-objc/mulle-objc-list)             | 📒 Lists mulle-objc runtime information contained in executables.
 
 Download the latest [tar](https://github.com/MulleWeb/MulleZlib/archive/refs/tags/latest.tar.gz) or [zip](https://github.com/MulleWeb/MulleZlib/archive/refs/tags/latest.zip) archive and unpack it.
