@@ -18,25 +18,29 @@ endif()
 # Disable for a sdk: `mulle-sourcetree mark z no-cmake-sdk-<name>`
 #
 if( ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-   if( NOT Z_LIBRARY)
-      find_library( Z_LIBRARY NAMES
-         z
-      )
-      message( STATUS "Z_LIBRARY is ${Z_LIBRARY}")
-      #
-      # The order looks ascending, but due to the way this file is read
-      # it ends up being descending, which is what we need.
-      #
-      if( Z_LIBRARY)
+   if( COLLECT_OS_SPECIFIC_LIBRARIES_AS_NAMES)
+      list( APPEND OS_SPECIFIC_LIBRARIES "z")
+   else()
+      if( NOT Z_LIBRARY)
+         find_library( Z_LIBRARY NAMES
+            z
+         )
+         message( STATUS "Z_LIBRARY is ${Z_LIBRARY}")
          #
-         # Add Z_LIBRARY to OS_SPECIFIC_LIBRARIES list.
-         # Disable with: `mulle-sourcetree mark z no-cmake-add`
+         # The order looks ascending, but due to the way this file is read
+         # it ends up being descending, which is what we need.
          #
-         list( APPEND OS_SPECIFIC_LIBRARIES ${Z_LIBRARY})
-         # intentionally left blank
-      else()
-         # Disable with: `mulle-sourcetree mark z no-require-link`
-         message( FATAL_ERROR "Z_LIBRARY was not found")
+         if( Z_LIBRARY)
+            #
+            # Add Z_LIBRARY to OS_SPECIFIC_LIBRARIES list.
+            # Disable with: `mulle-sourcetree mark z no-cmake-add`
+            #
+            list( APPEND OS_SPECIFIC_LIBRARIES ${Z_LIBRARY})
+            # intentionally left blank
+         else()
+            # Disable with: `mulle-sourcetree mark z no-require-link`
+            message( SEND_ERROR "Z_LIBRARY was not found")
+         endif()
       endif()
    endif()
-   endif()
+endif()
