@@ -7,7 +7,7 @@ Compression and decompression of NSData.
 
 | Release Version                                       | Release Notes
 |-------------------------------------------------------|--------------
-| ![Mulle kybernetiK tag](https://img.shields.io/github/tag/MulleWeb/MulleZlib.svg?branch=release) [![Build Status](https://github.com/MulleWeb/MulleZlib/workflows/CI/badge.svg?branch=release)](//github.com/MulleWeb/MulleZlib/actions) | [RELEASENOTES](RELEASENOTES.md) |
+| ![Mulle kybernetiK tag](https://img.shields.io/github/tag/MulleWeb/MulleZlib.svg) [![Build Status](https://github.com/MulleWeb/MulleZlib/workflows/CI/badge.svg)](//github.com/MulleWeb/MulleZlib/actions) | [RELEASENOTES](RELEASENOTES.md) |
 
 
 
