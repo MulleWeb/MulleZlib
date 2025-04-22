@@ -1,6 +1,6 @@
 cmake_minimum_required( VERSION 3.15)
 
-project( MulleZlib VERSION 0.15.11 LANGUAGES C)
+project( MulleZlib VERSION 0.15.12 LANGUAGES C)
 
 
 
