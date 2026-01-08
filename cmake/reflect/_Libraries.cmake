@@ -39,7 +39,7 @@ if( ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
             # intentionally left blank
          else()
             # Disable with: `mulle-sourcetree mark z no-require-link`
-            message( SEND_ERROR "Z_LIBRARY was not found")
+            message( SEND_ERROR "Z_LIBRARY was not found in z")
          endif()
       endif()
    endif()
