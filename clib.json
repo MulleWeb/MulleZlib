@@ -1,9 +1,9 @@
 {
    "name" : "MulleZlib",
-   "version" : "0.15.10",
+   "version" : "0.15.13",
    "description" : "🐘 Zlib compression for mulle-objc",
    "keywords" : [],
-   "license" : "BSD-3-Clause",
+   "license" : "UNLICENSED",
    "repo" : "MulleWeb/MulleZlib",
    "src" : [
       "src/generic/import-private.h",
