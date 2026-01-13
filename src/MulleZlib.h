@@ -7,7 +7,7 @@
  *
  *  version:  major, minor, patch
  */
-#define MULLE_ZLIB_VERSION  ((0UL << 20) | (15 << 8) | 12)
+#define MULLE_ZLIB_VERSION  ((0UL << 20) | (15 << 8) | 13)
 
 
 static inline unsigned int   MulleZlib_get_version_major( void)
