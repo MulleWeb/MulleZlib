@@ -22,7 +22,7 @@
 //    remove #include: `mulle-sde dependency mark z no-header`
 //    rename              : `mulle-sde dependency|library set z include whatever.h`
 //    reorder             : `mulle-sde dependency move z <up|down>`
-//    toggle #include: `mulle-sde dependency mark z [no-]import`
+//    toggle objc         : `mulle-sde dependency mark z [no-]import`
 //    toggle public       : `mulle-sde dependency mark z [no-]public`
 //    toggle optional     : `mulle-sde dependency mark z [no-]require`
 //    remove for platform : `mulle-sde dependency mark z no-platform-<uname>`
@@ -39,7 +39,7 @@
 //    remove #include: `mulle-sde dependency mark zlib no-header`
 //    rename              : `mulle-sde dependency|library set zlib include whatever.h`
 //    reorder             : `mulle-sde dependency move zlib <up|down>`
-//    toggle #include: `mulle-sde dependency mark zlib [no-]import`
+//    toggle objc         : `mulle-sde dependency mark zlib [no-]import`
 //    toggle public       : `mulle-sde dependency mark zlib [no-]public`
 //    toggle optional     : `mulle-sde dependency mark zlib [no-]require`
 //    remove for platform : `mulle-sde dependency mark zlib no-platform-<uname>`
