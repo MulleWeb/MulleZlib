@@ -10,6 +10,7 @@
       repo="MulleZlib";
       homepage="https://github.com/MulleWeb/MulleZlib";
       license="UNLICENSED";
+      version="0.15.14";
    };
    dependencies =
    (

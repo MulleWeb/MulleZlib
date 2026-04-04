@@ -11,12 +11,12 @@ void  check( int no, char *s, size_t len)
 				        	 	 length:len];
 	compressed = [data mulleZlibCompressedData];
 	if( ! compressed && len)
-		printf( "#%d: COMPRESSION FAIL\n", no);
+		mulle_printf( "#%d: COMPRESSION FAIL\n", no);
 	decompressed = [compressed mulleZlibDecompressedData];
 	if( ! decompressed && len)
-		printf( "#%d:DECOMPRESSION FAIL\n", no);
+		mulle_printf( "#%d:DECOMPRESSION FAIL\n", no);
 	if( ! [data isEqualToData:decompressed])
-		printf( "#%d:CORRUPTION FAIL: %s\n", no, [decompressed bytes]);
+		mulle_printf( "#%d:CORRUPTION FAIL: %s\n", no, (char *) [decompressed bytes]);
 }
 
 

@@ -1,55 +1,10 @@
-### 0.15.13
+### 0.15.14
 
-Various small improvements
 
-### 0.15.12
 
-Various small improvements
 
-### 0.15.11
 
-Various small improvements
 
-### 0.15.10
-
-* Various small improvements
-
-### 0.15.9
-
-* Various small improvements
-
-### 0.15.8
-
-* Various small improvements
-
-### 0.15.7
-
-* moved generic headers into src/generic
-
-### 0.15.6
-
-* Various small improvements
-
-### 0.15.5
-
-* Various small improvements
-
-### 0.15.4
-
-* Various small improvements
-
-### 0.15.3
-
-* new mulle-sde project structure
-
-### 0.15.2
-
-* improved README
-
-### 0.15.1
-
-* Various small improvements
-
-## 0.15.0
-
-* modernized to new mulle-test
+* rename MulleObjCLoader implementation to MulleObjCDeps to provide an explicit dependency list for ObjC reflection
+* replace the reflect loader include with objc-deps.inc containing explicit class/category dependency entries
+* public NSData compression API (mulleZlibCompressedData / mulleZlibDecompressedData) unchanged

@@ -1,11 +1,12 @@
 {
    "name" : "MulleZlib",
-   "version" : "0.15.13",
+   "version" : "0.15.14",
    "description" : "🐘 Zlib compression for mulle-objc",
    "keywords" : [],
    "license" : "UNLICENSED",
    "repo" : "MulleWeb/MulleZlib",
    "src" : [
+      "asset/dox/TOC.md",
       "src/generic/import-private.h",
       "src/generic/import.h",
       "src/generic/include-private.h",
