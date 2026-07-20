@@ -1,6 +1,6 @@
 {
    "name" : "MulleZlib",
-   "version" : "0.15.14",
+   "version" : "0.15.15",
    "description" : "🐘 Zlib compression for mulle-objc",
    "keywords" : [],
    "license" : "UNLICENSED",
