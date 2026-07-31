@@ -1,14 +1,3 @@
 ### 0.15.15
 
 Various small improvements
-
-### 0.15.14
-
-
-
-
-
-
-* rename MulleObjCDeps implementation to MulleObjCDeps to provide an explicit dependency list for ObjC reflection
-* replace the reflect loader include with objc-deps.inc containing explicit class/category dependency entries
-* public NSData compression API (mulleZlibCompressedData / mulleZlibDecompressedData) unchanged
