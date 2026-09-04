@@ -22,25 +22,31 @@ if( ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
       list( APPEND OS_SPECIFIC_LIBRARIES "z")
    else()
       if( NOT Z_LIBRARY)
-         find_library( Z_LIBRARY NAMES
-            z
-         )
+         foreach( _TMP_Z_LIBRARY_TARGET z)
+            if( TARGET ${_TMP_Z_LIBRARY_TARGET})
+               set( Z_LIBRARY ${_TMP_Z_LIBRARY_TARGET})
+               break()
+            endif()
+         endforeach()
+         if( NOT Z_LIBRARY)
+            find_library( Z_LIBRARY NAMES
+               z
+            )
+         endif()
          message( STATUS "Z_LIBRARY is ${Z_LIBRARY}")
-         #
-         # The order looks ascending, but due to the way this file is read
-         # it ends up being descending, which is what we need.
-         #
-         if( Z_LIBRARY)
+      endif()
+      if( Z_LIBRARY)
             #
             # Add Z_LIBRARY to OS_SPECIFIC_LIBRARIES list.
             # Disable with: `mulle-sourcetree mark z no-cmake-add`
             #
-            list( APPEND OS_SPECIFIC_LIBRARIES ${Z_LIBRARY})
+            if( NOT ${Z_LIBRARY} IN_LIST OS_SPECIFIC_LIBRARIES)
+               list( APPEND OS_SPECIFIC_LIBRARIES ${Z_LIBRARY})
+            endif()
             # intentionally left blank
-         else()
-            # Disable with: `mulle-sourcetree mark z no-require-link`
-            message( SEND_ERROR "Z_LIBRARY was not found in z")
-         endif()
+      else()
+         # Disable with: `mulle-sourcetree mark z no-require-link`
+         message( SEND_ERROR "Z_LIBRARY was not found in z")
       endif()
    endif()
 endif()
