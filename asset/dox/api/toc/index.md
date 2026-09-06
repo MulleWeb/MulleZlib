@@ -1,5 +1,5 @@
 # MulleZlib Library Documentation for AI
-
+<!-- Keywords: zlib, compression, decompression, deflate, NSData, category, version -->
 ## 1. Introduction & Purpose
 
 MulleZlib adds DEFLATE compression and decompression capabilities to NSData through category methods. Wraps the zlib library for streaming data compression using industry-standard algorithm. Enables data size reduction for storage, transmission, and archival while maintaining data integrity through checksum verification.
@@ -16,16 +16,35 @@ MulleZlib adds DEFLATE compression and decompression capabilities to NSData thro
 
 ## 3. Core API & Data Structures
 
-### NSData (MulleZlib) Category
+### `src/MulleZlib.h`
 
-#### Compression
+Library entry point that any consumer must `#import`. Defines the version
+macro and accessors, and exposes the `NSData( MulleZlib)` category via
+`#import "NSData+MulleZlib.h"`.
 
-- `- mulleZlibCompressedData` → `NSData *`: Compress with default compression level (6)
-- `- mulleZlibCompressedDataWithCompressionLevel:(int)level` → `NSData *`: Compress with specified level
+#### Version API
 
-#### Decompression
+- **Purpose:** Identifies the MulleZlib library version.
+- **Key Macros / Functions:**
+  - `#define MULLE_ZLIB_VERSION  ((0UL << 20) | (15 << 8) | 16)` — packed `major/minor/patch` version number.
+  - `static inline unsigned int   MulleZlib_get_version_major( void)` — returns the major version (`version >> 20`).
+  - `static inline unsigned int   MulleZlib_get_version_minor( void)` — returns the minor version (`(version >> 8) & 0xFFF`).
+  - `static inline unsigned int   MulleZlib_get_version_patch( void)` — returns the patch version (`version & 0xFF`).
+  - `extern uint32_t   MulleZlib_get_version( void);` — returns the full packed `MULLE_ZLIB_VERSION` value.
 
-- `- mulleZlibDecompressedData` → `NSData *`: Decompress zlib-compressed data
+### `src/NSData+MulleZlib.h`
+
+#### NSData (MulleZlib) Category
+
+- **Purpose:** Extends the `NSData` objects, adding zlib (DEFLATE) compression
+  and decompression without subclassing.
+- **Lifecycle Functions:** No lifecycle functions are introduced. `NSData`
+  instances are created/destroyed as usual (see `MulleFoundationBase`);
+  each method below returns a newly allocated `NSData` result.
+- **Core Operations:**
+  - `- (NSData *) mulleZlibCompressedDataWithCompressionLevel:(int) level;` — compress the receiver with an explicit zlib compression level (0-9).
+  - `- (NSData *) mulleZlibCompressedData;` — compress the receiver with the default compression level (6).
+  - `- (NSData *) mulleZlibDecompressedData;` — decompress a zlib-compressed receiver (accepts zlib or gzip header via `inflateInit2(..., 15 + 32)`). Returns `nil` on corrupted/invalid input.
 
 ### Compression Levels
 
@@ -87,28 +106,21 @@ Typical usage:
 ### Idiomatic Usage
 
 ```objc
-// Pattern 1: Simple compress/decompress
-NSData *original = [@"Large text to compress" dataUsingEncoding:NSUTF8StringEncoding];
-NSData *compressed = [original mulleZlibCompressedData];
-NSData *restored = [compressed mulleZlibDecompressedData];
+// The "mulle-sde way" - as in test/simple/simple.m and the README.
+// Create data, compress, decompress, and verify the round-trip:
 
-// Pattern 2: Custom compression level
-NSData *fast = [data mulleZlibCompressedDataWithCompressionLevel:1];
-NSData *optimal = [data mulleZlibCompressedDataWithCompressionLevel:6];
-NSData *best = [data mulleZlibCompressedDataWithCompressionLevel:9];
+static char   longtext[] = "Compression and decompression of NSData.";
 
-// Pattern 3: Network transmission
-NSData *payload = [@"Large response" dataUsingEncoding:NSUTF8StringEncoding];
-NSData *compressed = [payload mulleZlibCompressedData];
-// Send compressed data...
-NSData *received = ...;
-NSData *decompressed = [received mulleZlibDecompressedData];
+NSData        *data;
+NSData        *compressed;
+NSData        *decompressed;
 
-// Pattern 4: Size estimation
-NSData *original = ...;
-NSData *compressed = [original mulleZlibCompressedData];
-float ratio = [compressed length] / (float)[original length];
-NSLog(@"Compression ratio: %.1f%%", ratio * 100);
+data         = [NSData dataWithBytes:longtext
+                         length:sizeof( longtext)];
+compressed   = [data mulleZlibCompressedData];        // default level 6
+decompressed = [compressed mulleZlibDecompressedData];
+if( ! [data isEqualToData:decompressed])
+   mulle_printf( "CORRUPTION FAIL\n");
 ```
 
 ## 6. Integration Examples
@@ -118,23 +130,30 @@ NSLog(@"Compression ratio: %.1f%%", ratio * 100);
 ```objc
 #import <MulleZlib/MulleZlib.h>
 
-int main() {
-    NSString *original = @"The quick brown fox jumps over the lazy dog";
-    NSData *data = [original dataUsingEncoding:NSUTF8StringEncoding];
-    
-    // Compress
-    NSData *compressed = [data mulleZlibCompressedData];
-    NSLog(@"Original size: %lu bytes", [data length]);
-    NSLog(@"Compressed size: %lu bytes", [compressed length]);
-    
-    // Decompress
-    NSData *decompressed = [compressed mulleZlibDecompressedData];
-    NSString *restored = [[NSString alloc] initWithData:decompressed 
-                                               encoding:NSUTF8StringEncoding];
-    NSLog(@"Restored: %@", restored);
-    
-    [restored release];
-    return 0;
+// modeled after test/simple/simple.m
+void  check( char *s, size_t len)
+{
+   NSData   *data;
+   NSData   *compressed;
+   NSData   *decompressed;
+
+   data         = [NSData dataWithBytes:s
+                                   length:len];
+   compressed   = [data mulleZlibCompressedData];
+   if( ! compressed && len)
+      mulle_printf( "COMPRESSION FAIL\n");
+   decompressed = [compressed mulleZlibDecompressedData];
+   if( ! decompressed && len)
+      mulle_printf( "DECOMPRESSION FAIL\n");
+   if( ! [data isEqualToData:decompressed])
+      mulle_printf( "CORRUPTION FAIL\n");
+}
+
+
+int  main( void)
+{
+   check( "The quick brown fox jumps over the lazy dog", 44);
+   return( 0);
 }
 ```
 
@@ -363,5 +382,9 @@ int main() {
 
 ## 7. Dependencies
 
-- zlib (libz)
-- MulleFoundationBase (NSData)
+Direct `mulle-sde` dependencies (from `.mulle/etc/sourcetree/config`):
+
+- `zlib` — the underlying compression library (C library, `zlib.h`; on Darwin the system `z` via a node is used instead)
+- `MulleFoundationBase` — amalgamates the foundation libraries and provides `NSData`/`NSMutableData` and the `mulle_allocator`
+- `mulle-objc-list` — lists mulle-objc runtime information (no header, no link; not exposed in the public API)
+- `craftinfo/zlib-craftinfo` — local craft information node for building zlib with `mulle-sde`
