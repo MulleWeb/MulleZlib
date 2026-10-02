@@ -1,6 +1,6 @@
 {
    "name" : "MulleZlib",
-   "version" : "0.15.16",
+   "version" : "0.15.17",
    "description" : "🐘 Zlib compression for mulle-objc",
    "keywords" : [],
    "license" : "UNLICENSED",
@@ -28,6 +28,6 @@
    "dependencies" : {
       "madler/zlib": "*",
       "MulleFoundation/MulleFoundationBase": "*",
-      "mulle-objc/mulle-objc-list": "*"
+      "mulle-objc/mulle-objc-tools": "*"
    }
 }
