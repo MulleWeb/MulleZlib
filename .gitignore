@@ -68,3 +68,8 @@ build-*/
 .kiro/
 TODO.md
 REVIEW.md
+*.old
+.touch
+*.orig
+*.workspace
+research/
